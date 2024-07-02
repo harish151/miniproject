@@ -16,7 +16,7 @@
         <div>
     <label>PRODUCT1:</label>
     <input type="text" name="search_query1" id="textbox1" placeholder="search1" size="50">
-    <div><pre class="error-message" id="error-message">{{ error1 }}</pre></div>
+        <div><pre class="error-message" id="error-message">{{ error1 }}</pre></div>
         </div>
         <div>
     <label>PRODUCT2:</label>
@@ -31,27 +31,24 @@
         </div>
 </form>
 
-    <!--Loading button-->
+    <!--Loading Animation-->
     <br><br>
     <div class="loader" id="loader"></div>
-    <br><div id="content">Please Wait...</div>
+    <br><div class="content" id="content">Please Wait...</div>
     <div id="result">
    
     <!--result table-->
     {% if table_data %}
+    {% for row in table_data %}
 <table border="1" width="100%" style="border-collapse:collapse">
     <!-- row1-->
     <thead>
             <td colspan="2"></td>
             <td align="center" width="42%">
-                {% for row in table_data %}
                 <h1>{{row['data1']}}</h1><br>
-                {% endfor %} 
             </td>
             <td align="center" width="50%">
-                {% for row in table_data %}
-                <h1>{{row['data35']}}</h1><br>
-                {% endfor %}
+                <h1>{{row['data36']}}</h1><br>
             </td>
     </thead>
 
@@ -59,290 +56,221 @@
     <tr>
       <td align="center" class="headings" width="10%">MOBILE</td>
       <td align="left" class="subheadings">Image</td>
-      {% for row in table_data %}
       <td align="center"><img src="{{row['data71']}}"></td>
       <td align="center"><img src="{{row['data72']}}"></td>
-      {% endfor %}
     </tr>
     
     <!-- row3-->
     <tr>
       <td align="center" class="headings" width="10%">NETWORK</td>
       <td align="left" class="subheadings">Technology</td>
-      {% for row in table_data %}
       <td>{{row['data2']}}</td>
-      <td>{{row['data36']}}</td>
-      {% endfor %}
+      <td>{{row['data37']}}</td>
     </tr>
 
     <!-- row4-->
     <tr>
       <td rowspan="2" align="center" class="headings" width="10%">LAUNCH</td>
       <td align="left" class="subheadings" width="10%">Announced</td>
-      {% for row in table_data %}
       <td>{{row['data3']}}</td>
-      <td>{{row['data37']}}</td>
-      {% endfor %}
+      <td>{{row['data38']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Status</td>
-      {% for row in table_data %}
       <td>{{row['data4']}}</td>
-      <td>{{row['data38']}}</td>
-      {% endfor %}
+      <td>{{row['data39']}}</td>
     </tr>
 
     <!-- row5-->
     <tr> 
       <td rowspan="4" align="center" class="headings" width="10%">BODY</td>
       <td align="left" class="subheadings" width="10%">Dimensions</td>
-      {% for row in table_data %}
       <td>{{row['data5']}}</td>
-      <td>{{row['data39']}}</td>
-      {% endfor %}
+      <td>{{row['data40']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Weight</td>
-      {% for row in table_data %}
       <td>{{row['data6']}}</td>
-      <td>{{row['data40']}}</td>
-      {% endfor %}
+      <td>{{row['data41']}}</td>
     </tr>
      <tr>
       <td align="left" class="subheadings" width="10%">Build</td>
-      {% for row in table_data %}
-      <td>{{row['data69']}}</td>
-      <td>{{row['data70']}}</td>
-      {% endfor %}
+      <td>{{row['data7']}}</td>
+      <td>{{row['data42']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">SIM</td>
-      {% for row in table_data %}
-      <td>{{row['data7']}}</td>
-      <td>{{row['data41']}}</td>
-      {% endfor %}
+      <td>{{row['data8']}}</td>
+      <td>{{row['data43']}}</td>
     </tr>
 
     <!-- row6-->
     <tr>
       <td rowspan="3" align="center" class="headings" width="10%">DISPLAY</td>
       <td align="left" class="subheadings" width="10%">Type</td>
-      {% for row in table_data %}
-      <td>{{row['data8']}}</td>
-      <td>{{row['data42']}}</td>
-      {% endfor %}
+      <td>{{row['data9']}}</td>
+      <td>{{row['data44']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Size</td>
-      {% for row in table_data %}
-      <td>{{row['data9']}}</td>
-      <td>{{row['data43']}}</td>
-      {% endfor %}
+      <td>{{row['data10']}}</td>
+      <td>{{row['data45']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Resolution</td>
-      {% for row in table_data %}
-      <td>{{row['data10']}}</td>
-      <td>{{row['data44']}}</td>
-      {% endfor %}
+      <td>{{row['data11']}}</td>
+      <td>{{row['data46']}}</td>
     </tr>
 
     <!-- row7-->
     <tr> 
       <td rowspan="4" align="center" class="headings" width="10%">PLATFORM</td>
       <td align="left" class="subheadings" width="10%">OS</td>
-      {% for row in table_data %}
-      <td>{{row['data11']}}</td>
-      <td>{{row['data45']}}</td>
-      {% endfor %}
+      <td>{{row['data12']}}</td>
+      <td>{{row['data47']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">ChipSet</td>
-      {% for row in table_data %}
-      <td>{{row['data12']}}</td>
-      <td>{{row['data46']}}</td>
-      {% endfor %}
+      <td>{{row['data13']}}</td>
+      <td>{{row['data48']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">CPU</td>
-      {% for row in table_data %}
-      <td>{{row['data13']}}</td>
-      <td>{{row['data47']}}</td>
-      {% endfor %}
+      <td>{{row['data14']}}</td>
+      <td>{{row['data49']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">GPU</td>
-      {% for row in table_data %}
-      <td>{{row['data14']}}</td>
-      <td>{{row['data48']}}</td>
-      {% endfor %}
+      <td>{{row['data15']}}</td>
+      <td>{{row['data50']}}</td>
     </tr>
 
     <!-- row8-->
     <tr>
       <td rowspan="2" align="center" class="headings" width="10%">MEMORY</td>
       <td align="left" class="subheadings" width="10%">Card slot</td>
-      {% for row in table_data %}
-      <td>{{row['data15']}}</td>
-      <td>{{row['data49']}}</td>
-      {% endfor %}
+      <td>{{row['data16']}}</td>
+      <td>{{row['data51']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Internal</td>
-      {% for row in table_data %}
-      <td>{{row['data16']}}</td>
-      <td>{{row['data50']}}</td>
-      {% endfor %}
+      <td>{{row['data17']}}</td>
+      <td>{{row['data52']}}</td>
     </tr>
 
     <!-- row9-->
     <tr>
       <td rowspan="3" align="center" class="headings" width="10%">MAIN<br>CAMERA</td>
       <td align="left" class="subheadings" width="10%">Single</td>
-      {% for row in table_data %}
-      <td>{{row['data17']}}</td>
-      <td>{{row['data51']}}</td>
-      {% endfor %}
+      <td>{{row['data18']}}</td>
+      <td>{{row['data53']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Features</td>
-      {% for row in table_data %}
-      <td>{{row['data18']}}</td>
-      <td>{{row['data52']}}</td>
-      {% endfor %}
+      <td>{{row['data19']}}</td>
+      <td>{{row['data54']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Video</td>
-      {% for row in table_data %}
-      <td>{{row['data19']}}</td>
-      <td>{{row['data53']}}</td>
-      {% endfor %}
+      <td>{{row['data20']}}</td>
+      <td>{{row['data55']}}</td>
     </tr>
 
     <!-- row10-->
     <tr>
       <td rowspan="3" align="center" class="headings" width="10%">SELFIE<br>CAMERA</td>
       <td align="left" class="subheadings" width="10%">Single</td>
-      {% for row in table_data %}
-      <td>{{row['data20']}}</td>
-      <td>{{row['data54']}}</td>
-      {% endfor %}
+      <td>{{row['data21']}}</td>
+      <td>{{row['data56']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Features</td>
-      {% for row in table_data %}
-      <td>{{row['data21']}}</td>
-      <td>{{row['data55']}}</td>
-      {% endfor %}
+      <td>{{row['data22']}}</td>
+      <td>{{row['data57']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Video</td>
-      {% for row in table_data %}
-      <td>{{row['data22']}}</td>
-      <td>{{row['data56']}}</td>
-      {% endfor %}
+      <td>{{row['data23']}}</td>
+      <td>{{row['data58']}}</td>
     </tr>
 
     <!-- row11-->
      <tr>
       <td rowspan="2" align="center" class="headings" width="10%">SOUND</td>
       <td align="left" class="subheadings" width="10%">LoudSpeaker</td>
-      {% for row in table_data %}
-      <td>{{row['data23']}}</td>
-      <td>{{row['data57']}}</td>
-      {% endfor %}
+      <td>{{row['data24']}}</td>
+      <td>{{row['data59']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">3.5mm jack</td>
-      {% for row in table_data %}
-      <td>{{row['data24']}}</td>
-      <td>{{row['data58']}}</td>
-      {% endfor %}
+      <td>{{row['data25']}}</td>
+      <td>{{row['data60']}}</td>
     </tr>
 
     <!-- row12-->
     <tr>
       <td rowspan="6" align="center" class="headings" width="10%">COMMS</td>
       <td align="left" class="subheadings" width="10%">WLAN</td>
-      {% for row in table_data %}
-      <td>{{row['data25']}}</td>
-      <td>{{row['data59']}}</td>
-      {% endfor %}
+      <td>{{row['data26']}}</td>
+      <td>{{row['data61']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Blutooth</td>
-      {% for row in table_data %}
-      <td>{{row['data26']}}</td>
-      <td>{{row['data60']}}</td>
-      {% endfor %}
+      <td>{{row['data27']}}</td>
+      <td>{{row['data62']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Positioning</td>
-      {% for row in table_data %}
-      <td>{{row['data27']}}</td>
-      <td>{{row['data61']}}</td>
-      {% endfor %}
+      <td>{{row['data28']}}</td>
+      <td>{{row['data63']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">NFC</td>
-      {% for row in table_data %}
-      <td>{{row['data28']}}</td>
-      <td>{{row['data62']}}</td>
-      {% endfor %}
+      <td>{{row['data29']}}</td>
+      <td>{{row['data64']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Radio</td>
-      {% for row in table_data %}
-      <td>{{row['data29']}}</td>
-      <td>{{row['data63']}}</td>
-      {% endfor %}
+      <td>{{row['data30']}}</td>
+      <td>{{row['data65']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">USB</td>
-      {% for row in table_data %}
-      <td>{{row['data30']}}</td>
-      <td>{{row['data64']}}</td>
-      {% endfor %}
+      <td>{{row['data31']}}</td>
+      <td>{{row['data66']}}</td>
     </tr>
 
     <!-- row13-->
     <tr>
       <td align="center" class="headings" width="10%">FEATURES</td>
       <td align="left" class="subheadings" width="10%">Sensors</td>
-      {% for row in table_data %}
-      <td>{{row['data31']}}</td>
-      <td>{{row['data65']}}</td>
-      {% endfor %}
+      <td>{{row['data32']}}</td>
+      <td>{{row['data67']}}</td>
     </tr>
 
     <!-- row14-->
     <tr>
       <td rowspan="2" align="center" class="headings" width="10%">BATTERY</td>
       <td align="left" class="subheadings" width="10%">Type</td>
-      {% for row in table_data %}
-      <td>{{row['data32']}}</td>
-      <td>{{row['data66']}}</td>
-      {% endfor %}
+      <td>{{row['data33']}}</td>
+      <td>{{row['data68']}}</td>
     </tr>
     <tr>
       <td align="left" class="subheadings" width="10%">Charging</td>
-      {% for row in table_data %}
-      <td>{{row['data33']}}</td>
-      <td>{{row['data67']}}</td>
-      {% endfor %}
+      <td>{{row['data34']}}</td>
+      <td>{{row['data69']}}</td>
     </tr>
 
     <!-- row15-->
     <tr>
       <td align="center" class="headings" width="10%">MISC</td>
       <td align="left" class="subheadings" width="10%">Colors</td>
-      {% for row in table_data %}
-      <td>{{row['data34']}}</td>
-      <td>{{row['data68']}}</td>
-      {% endfor %}
+      <td>{{row['data35']}}</td>
+      <td>{{row['data70']}}</td>
     </tr>
 
   </table>
+  {% endfor %}
   {% endif %}
         </div>
     <script src="/static/scripts.js"> </script>
