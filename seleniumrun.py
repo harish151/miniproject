@@ -170,14 +170,15 @@ def search(search_query):
     cardslots = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[6]/tbody/tr[1]/td[2]""")
     cardslot_names=[b.text for b in cardslots[:1]]
     
-         #Memory =>Internal
-    internals = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[6]/tbody/tr[2]/td[2]""")
-    internal_names=[b.text for b in internals[:1]]
 
     camera = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/th""")
     cameras=[b.text for b in camera[:1]]
     for cams in cameras:
          if cams !="CAMERA":
+                #Memory =>Internal
+                internals = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[6]/tbody/tr[2]/td[2]""")
+                internal_names=[b.text for b in internals[:1]]
+             
                 #Main camera => Single
                 singles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/td[2]""")
                 single_names=[b.text for b in singles[:1]]
