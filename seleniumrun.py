@@ -173,141 +173,226 @@ def search(search_query):
          #Memory =>Internal
     internals = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[6]/tbody/tr[2]/td[2]""")
     internal_names=[b.text for b in internals[:1]]
+
+    camera = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/th""")
+    cameras=[b.text for b in camera[:1]]
+    for cams in cameras:
+         if cams !="CAMERA":
+                #Main camera => Single
+                singles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/td[2]""")
+                single_names=[b.text for b in singles[:1]]
     
-       #Main camera => Single
-    singles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/td[2]""")
-    single_names=[b.text for b in singles[:1]]
+                #Main camera => Features
+                featuress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[2]/td[2]""")
+                features_names=[b.text for b in featuress[:1]]
     
-       #Main camera => Features
-    featuress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[2]/td[2]""")
-    features_names=[b.text for b in featuress[:1]]
+                 #Main camera => Video
+                videos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[3]/td[2]""")
+                video_names=[b.text for b in videos[:1]]
     
-       #Main camera => Video
-    videos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[3]/td[2]""")
-    video_names=[b.text for b in videos[:1]]
+                #Selfie Camera => Single
+                sin_gles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[1]/td[2]""")
+                sin_gle_names=[b.text for b in sin_gles[:1]]
     
-       #Selfie Camera => Single
-    sin_gles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[1]/td[2]""")
-    sin_gle_names=[b.text for b in sin_gles[:1]]
+                #Selfie Camera => Features
+                feat_uress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[2]/td[2]""")
+                feat_ures_names=[b.text for b in feat_uress[:1]]
     
-       #Selfie Camera => Features
-    feat_uress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[2]/td[2]""")
-    feat_ures_names=[b.text for b in feat_uress[:1]]
+                #Selfie Camera => Video
+                v_ideos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[3]/td[2]""")
+                v_ideo_names=[b.text for b in v_ideos[:1]]
     
-       #Selfie Camera => Video
-    v_ideos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[3]/td[2]""")
-    v_ideo_names=[b.text for b in v_ideos[:1]]
+                #Sound =>Loudspeaker
+                loudspeakers = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[1]/td[2]""")
+                loudspeaker_names=[b.text for b in loudspeakers[:1]]
     
-       #Sound =>Loudspeaker
-    loudspeakers = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[1]/td[2]""")
-    loudspeaker_names=[b.text for b in loudspeakers[:1]]
+                #Sound => 3.5mm Jack
+                jacks = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[2]/td[2]""")
+                jack_names=[b.text for b in jacks[:1]]
     
-       #Sound => 3.5mm Jack
-    jacks = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[2]/td[2]""")
-    jack_names=[b.text for b in jacks[:1]]
+                #Comms => Wlan
+                wlans = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[1]/td[2]""")
+                wlan_names=[b.text for b in wlans[:1]]
     
-       #Comms => Wlan
-    wlans = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[1]/td[2]""")
-    wlan_names=[b.text for b in wlans[:1]]
+                #Comms =>Blutooth
+                blutooths = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[2]/td[2]""")
+                blutooth_names=[b.text for b in blutooths[:1]]
     
-       #Comms =>Blutooth
-    blutooths = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[2]/td[2]""")
-    blutooth_names=[b.text for b in blutooths[:1]]
+                #Comms =>Positioning
+                positionings = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[3]/td[2]""")
+                positioning_names=[b.text for b in positionings[:1]]
     
-       #Comms =>Positioning
-    positionings = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[3]/td[2]""")
-    positioning_names=[b.text for b in positionings[:1]]
-    
-       #Comms=>NFC
-    nfcs = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[4]/td[2]""")
-    nfc_names=[b.text for b in nfcs[:1]]
+                #Comms=>NFC
+                nfcs = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[4]/td[2]""")
+                nfc_names=[b.text for b in nfcs[:1]]
        
-       #Comms=>Infrared port
-    try:
-            infrared_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[1]/a""")
-            infrared_titles=[b.text for b in infrared_title[:1]]
-            for infrared in infrared_titles:
-                if infrared=="Infrared port":
-                    infrareds = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[2]""")
-                    infrared_name=[b.text for b in infrareds[:1]]
-                else:
-                    infrared_name="-"
-            infrared_names=infrared_name
-    except:
-            infrared_name="-"
-            infrared_names=infrared_name
+                #Comms=>Infrared port
+                try:
+                        infrared_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[1]/a""")
+                        infrared_titles=[b.text for b in infrared_title[:1]]
+                        for infrared in infrared_titles:
+                            if infrared=="Infrared port":
+                                infrareds = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[2]""")
+                                infrared_name=[b.text for b in infrareds[:1]]
+                            else:
+                                infrared_name="-"
+                        infrared_names=infrared_name
+                except:
+                        infrared_name="-"
+                        infrared_names=infrared_name
        
 
-        #Comms =>Radio
-    radio_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[1]/a""")
-    radio_titles=[b.text for b in radio_title[:1]]
-    for radio in radio_titles:        
-            if radio=="Radio":
-                radios = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[2]""")
-                radio_name=[b.text for b in radios[:1]]
-            else:
-                radios = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[6]/td[2]""")
-                radio_name=[b.text for b in radios[:1]]
-    radio_names=radio_name
+                #Comms =>Radio
+                radio_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[1]/a""")
+                radio_titles=[b.text for b in radio_title[:1]]
+                for radio in radio_titles:        
+                        if radio=="Radio":
+                            radios = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[2]""")
+                            radio_name=[b.text for b in radios[:1]]
+                        else:
+                            radios = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[6]/td[2]""")
+                            radio_name=[b.text for b in radios[:1]]
+                radio_names=radio_name
     
-        #Comms =>USB      
-    usb_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[6]/td[1]/a""")
-    usb_titles=[b.text for b in usb_title[:1]]
-    for usb in usb_titles:
-            if usb=="USB":
-                usbs = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[6]/td[2]""")
-                usb_name=[b.text for b in usbs[:1]]
-            else:
-                usbs = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[7]/td[2]""")
-                usb_name=[b.text for b in usbs[:1]]
-    usb_names=usb_name
+                #Comms =>USB      
+                usb_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[6]/td[1]/a""")
+                usb_titles=[b.text for b in usb_title[:1]]
+                for usb in usb_titles:
+                        if usb=="USB":
+                            usbs = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[6]/td[2]""")
+                            usb_name=[b.text for b in usbs[:1]]
+                        else:
+                            usbs = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[7]/td[2]""")
+                            usb_name=[b.text for b in usbs[:1]]
+                usb_names=usb_name
     
-        #Features => Sensors
-    sensorss = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[11]/tbody/tr/td[2]""")
-    sensors_names=[b.text for b in sensorss[:1]]
+                #Features => Sensors
+                sensorss = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[11]/tbody/tr/td[2]""")
+                sensors_names=[b.text for b in sensorss[:1]]
     
-        #Battery =>Type
-    ty_pes = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[1]/td[2]""")
-    ty_pe_names=[b.text for b in ty_pes[:1]]
+                #Battery =>Type
+                ty_pes = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[1]/td[2]""")
+                ty_pe_names=[b.text for b in ty_pes[:1]]
     
-        #Battery =>Charging
-    try:
-            charge_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[2]/td[1]/a""")
-            charging_titles=[b.text for b in charge_title[:1]]
-            for charge in charging_titles:
-                if charge=="Charging":
-                    charging = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[2]/td[2]""")
-                    charging_name=[b.text for b in charging[:1]]
-                else:
-                    charging_name="-"
-            charging_names=charging_name
-    except:
-            charging_name="-"
-            charging_names=charging_name
+                #Battery =>Charging
+                try:
+                        charge_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[2]/td[1]/a""")
+                        charging_titles=[b.text for b in charge_title[:1]]
+                        for charge in charging_titles:
+                            if charge=="Charging":
+                                charging = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[2]/td[2]""")
+                                charging_name=[b.text for b in charging[:1]]
+                            else:
+                                charging_name="-"
+                        charging_names=charging_name
+                except:
+                        charging_name="-"
+                        charging_names=charging_name
     
-        # Misc =>Color
-    colorss = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[1]/td[2]""")
-    colors_names=[b.text for b in colorss[:1]]
-         # Misc => Models
-    try:
-            model_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[2]/td[1]/a""")
-            model_titles=[b.text for b in model_title[:1]]
-            for models in model_titles:
-                if models=="Models":
-                    model= driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[2]/td[2]""")
-                    model_name=[b.text for b in model[:1]]
-                else:
-                    model_name="-"
-            model_names=model_name
-    except:
-            model_name="-"
-            model_names=model_name
+                # Misc =>Color
+                colorss = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[1]/td[2]""")
+                colors_names=[b.text for b in colorss[:1]]
+                # Misc => Models
+                try:
+                        model_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[2]/td[1]/a""")
+                        model_titles=[b.text for b in model_title[:1]]
+                        for models in model_titles:
+                            if models=="Models":
+                                model= driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[2]/td[2]""")
+                                model_name=[b.text for b in model[:1]]
+                            else:
+                                model_name="-"
+                        model_names=model_name
+                except:
+                        model_name="-"
+                        model_names=model_name
+      
+                # Misc => SAR
+                try:
+                        sar_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[3]/td[1]/a""")
+                        sar_titles=[b.text for b in sar_title[:1]]
+                        for sars in sar_titles:
+                            if sars=="SAR":
+                                sar= driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[3]/td[2]""")
+                                sar_name=[b.text for b in sar[:1]]
+                            else:
+                                sar_name="-"
+                        sar_names=sar_name
+                except:
+                        sar_name="-"
+                        sar_names=sar_name
+
+
+                #Misc => SAR EU
+                try:
+                        sar_eu_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[3]/td[1]/a""")
+                        sar_eu_titles=[b.text for b in sar_eu_title[:1]]
+                        for sar_eu_s in sar_eu_titles:
+                            if sar_eu_s=='SAR EU':
+                                sar_eu= driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[3]/td[2]""")
+                                sar_eu_name=[b.text for b in sar_eu[:1]]
+                            else:
+                                sar_eu_title2=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[4]/td[1]/a""")
+                                sar_eu_titles2=[b.text for b in sar_eu_title2[:1]]
+                                for sar_eu_s2 in sar_eu_titles2:
+                                    if sar_eu_s2=="SAR EU":
+                                        sar_eu2= driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[4]/td[2]""")
+                                        sar_eu_name2=[b.text for b in sar_eu2[:1]]
+                                    else:
+                                        sar_eu_name2="-"
+                                        sar_eu_names2=sar_eu_name2
+                                sar_eu_name=sar_eu_name2           
+                        sar_eu_names=sar_eu_name
+                except:
+                        sar_eu_name="-"
+                        sar_eu_names=sar_eu_name
+        
+                #Misc => Price
+
+                try:
+                        price_title = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[3]/td[1]/a""")
+                        price_titles=[b.text for b in price_title[:1]]
+                        for prices in price_titles:
+                            if prices=="Price":
+                                price = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[3]/td[2]/a""")
+                                price_name=[b.text for b in price[:1]]
+                                break
+                            else:
+                                price_title2 = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[4]/td[1]/a""")
+                                price_titles2=[b.text for b in price_title2[:1]]
+                                for prices2 in price_titles2:
+                                    if prices2=="Price":
+                                        price2 = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[4]/td[2]/a""")
+                                        price_name2=[b.text for b in price2[:1]]
+                                        break
+                                    else:
+                                        price_title3 = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[5]/td[1]/a""")
+                                        price_titles3=[b.text for b in price_title3[:1]]
+                                        for prices3 in price_titles3:
+                                            if prices3=="Price":
+                                                price3 = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[13]/tbody/tr[5]/td[2]""")
+                                                price_name3=[b.text for b in price3[:1]] 
+                                            else:
+                                                price_name3="-"
+                                        price_name2=price_name3
+                                price_name=price_name2
+                        price_Names=price_name
+                        price_names=[s.replace('\u2009','') for s in price_Names]
+                except:
+                        price_name="-"
+                        price_names=price_name
+                break
+         else:
+                print(" ")
+
+
 
     for data in zip(product_names,technology_names,announced_names,status_names,dimension_names,weight_count,build_names,sim_names,t_ypes_names,size_names,
                     resolution_names,os_names,chipset_names,cpu_names,gpu_names,cardslot_names,internal_names,single_names,features_names,video_names,
                     sin_gle_names,feat_ures_names,v_ideo_names,loudspeaker_names,jack_names,wlan_names,blutooth_names,positioning_names,nfc_names,radio_names,
-                    usb_names,sensors_names,ty_pe_names,charging_names,colors_names,protections_names,infrared_names,model_names):
-            print(data)
+                    usb_names,sensors_names,ty_pe_names,charging_names,colors_names,protections_names,infrared_names,model_names,sar_names,sar_eu_names,
+                    price_names):
+            data
     '''except:
          data=list(range(40))
          data[0:40]=["Not Found"]*(40)
