@@ -9,6 +9,7 @@ def tabledata(search_query1,search_query2):
                  'data41':product_data2[5],'data42':product_data2[6],'data43':product_data2[7],'data44':product_data2[8],'data45':product_data2[9],'data46':product_data2[10],'data47':product_data2[11],'data48':product_data2[12],'data49':product_data2[13],'data50':product_data2[14],
                  'data51':product_data2[15],'data52':product_data2[16],'data53':product_data2[17],'data54':product_data2[18],'data55':product_data2[19],'data56':product_data2[20],'data57':product_data2[21],'data58':product_data2[22],'data59':product_data2[23],'data60':product_data2[24],
                  'data61':product_data2[25],'data62':product_data2[26],'data63':product_data2[27],'data64':product_data2[28],'data65':product_data2[29],'data66':product_data2[30],'data67':product_data2[31],'data68':product_data2[32],'data69':product_data2[33],'data70':product_data2[34],
-                 'data71':product_data1[35],'data72':product_data2[35],'data73':product_data1[36],'data74':product_data2[36],'data75':product_data1[37],'data76':product_data2[37],'data77':img_url1,'data78':image_url2 
+                 'data71':product_data1[35],'data72':product_data2[35],'data73':product_data1[36],'data74':product_data2[36],'data75':product_data1[37],'data76':product_data2[37],'data77':product_data1[38],'data78':product_data2[38],'data79':product_data1[39],'data80':product_data2[39],
+                 'data81':product_data1[40],'data82':product_data2[40],'data83':img_url1,'data84':image_url2 
                 }]
     return table_data
