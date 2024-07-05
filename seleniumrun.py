@@ -178,30 +178,98 @@ def search(search_query):
                 #Memory =>Internal
                 internals = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[6]/tbody/tr[2]/td[2]""")
                 internal_names=[b.text for b in internals[:1]]
-             
+
                 #Main camera => Single
-                singles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/td[2]""")
-                single_names=[b.text for b in singles[:1]]
+                try:
+                     singles_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/td[1]/a""")
+                     singles_titles=[b.text for b in singles_title[:1]]
+                     for single in singles_titles:
+                          if single=="Single" or single=="Quad" or single=="Triple":
+                               singles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[1]/td[2]""")
+                               single_name=[b.text for b in singles[:1]]
+                          else:
+                               single_name="-"
+                     single_names=single_name
+                except:
+                     single_name="-"
+                     single_names=single_name
     
                 #Main camera => Features
-                featuress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[2]/td[2]""")
-                features_names=[b.text for b in featuress[:1]]
+                try:
+                     features_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[2]/td[1]/a""")
+                     features_titles=[b.text for b in features_title[:1]]
+                     for features in features_titles:
+                          if features=="Features":
+                               featuress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[2]/td[2]""")
+                               features_name=[b.text for b in featuress[:1]]
+                          else:
+                               features_name="-"
+                     features_names=features_name
+                except:
+                     features_name="-"
+                     features_names=features_name
     
                  #Main camera => Video
-                videos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[3]/td[2]""")
-                video_names=[b.text for b in videos[:1]]
+                try:
+                     videos_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[3]/td[1]""")
+                     videos_titles=[b.text for b in videos_title[:1]]
+                     for video in videos_titles:
+                          if video=="Video":
+                                videos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[7]/tbody/tr[3]/td[2]""")
+                                video_name=[b.text for b in videos[:1]]
+                          else:
+                               video_name="-"
+                     video_names=video_name
+                except:
+                     video_name="-"
+                     video_names=video_name
+
     
                 #Selfie Camera => Single
-                sin_gles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[1]/td[2]""")
-                sin_gle_names=[b.text for b in sin_gles[:1]]
+                try:
+                     sin_gles_title = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[1]/td[1]""")
+                     sin_gles_titles=[b.text for b in sin_gles_title[:1]]
+                     for sin_gle in sin_gles_titles:
+                          if sin_gle=="Single" or sin_gle=="Quad" or sin_gle=="Triple":
+                                sin_gles = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[1]/td[2]""")
+                                sin_gle_name=[b.text for b in sin_gles[:1]]
+                          else:
+                               sin_gle_name="-"
+                     sin_gle_names=sin_gle_name
+                except:
+                     sin_gle_name="-"
+                     sin_gle_names=sin_gle_name
     
                 #Selfie Camera => Features
-                feat_uress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[2]/td[2]""")
-                feat_ures_names=[b.text for b in feat_uress[:1]]
+                try:
+                     feat_uress_title = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[2]/td[1]""")
+                     feat_uress_titles = [b.text for b in feat_uress_title[:1]]
+                     for feat_ures in feat_uress_titles:
+                          if feat_ures == "Features":
+                               feat_uress = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[2]/td[2]""")
+                               feat_ures_name=[b.text for b in feat_uress[:1]]
+                          else:
+                               feat_ures_name="-"
+                     feat_ures_names=feat_ures_name
+                except:
+                     feat_ures_name="-"
+                     feat_ures_names=feat_ures_name
     
                 #Selfie Camera => Video
-                v_ideos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[3]/td[2]""")
-                v_ideo_names=[b.text for b in v_ideos[:1]]
+                try:
+                    v_ideo_title = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[3]/td[1]""") 
+                    v_ideo_titles = [b.text for b in v_ideo_title[:1]]
+                    for v_ideo in v_ideo_titles:
+                            if v_ideo == "Video":
+                                v_ideos = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[8]/tbody/tr[3]/td[2]""")
+                                v_ideo_name=[b.text for b in v_ideos[:1]]
+                            else:
+                                v_ideo_name ="-"
+                    v_ideo_names= v_ideo_name
+                except:
+                     v_ideo_name ="-"
+                     v_ideo_names= v_ideo_name
+                     
     
                 #Sound =>Loudspeaker
                 loudspeakers = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[1]/td[2]""")
