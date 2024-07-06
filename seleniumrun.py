@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def search(search_query):
     options = webdriver.ChromeOptions()
     options=Options()
-    #options.add_argument('--headless')  # Run in headless mode
+    options.add_argument('--headless')  # Run in headless mode
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     driver.get("https://www.gsmarena.com/")
     
