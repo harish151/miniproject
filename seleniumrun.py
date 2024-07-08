@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def search(search_query):
     options = webdriver.ChromeOptions()
     options=Options()
-    options.add_argument('--headless')  # Run in headless mode
+    #options.add_argument('--headless')  # Run in headless mode
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     driver.get("https://www.gsmarena.com/")
     
@@ -77,7 +77,7 @@ def search(search_query):
           sim_names=check_and_replace_empty_list(sim_name)
 
            
-          #Display =>Type
+       #Display =>Type
 
           t_ypes = driver.find_elements(By.XPATH, "//td[@data-spec='displaytype']")
           t_ypes_name=[b.text for b in t_ypes[:1]]
@@ -128,95 +128,94 @@ def search(search_query):
           gpu_name=[b.text for b in gpus[:1]]
           gpu_names=check_and_replace_empty_list(gpu_name)
        
-          #Memory =>Card slot
+         #Memory =>Card slot
 
           cardslots = driver.find_elements(By.XPATH, "//td[@data-spec='memoryslot']")
           cardslot_name=[b.text for b in cardslots[:1]]
           cardslot_names=check_and_replace_empty_list(cardslot_name)
         
-          #Memory => Internal
+        #Memory => Internal
 
           internals= driver.find_elements(By.XPATH, "//td[@data-spec='internalmemory']")
           internal_name=[b.text for b in internals[:1]]
           internal_names=check_and_replace_empty_list(internal_name)
     
-          #Main camera => Single
+                #Main camera => Single
 
           singles = driver.find_elements(By.XPATH, "//td[@data-spec='cam1modules']")
           single_name=[b.text for b in singles[:1]]
           single_names=check_and_replace_empty_list(single_name)
     
-          #Main camera => Features
+                #Main camera => Features
 
           featuress = driver.find_elements(By.XPATH, "//td[@data-spec='cam1features']")
           features_name=[b.text for b in featuress[:1]]
           features_names=check_and_replace_empty_list(features_name)
     
-          #Main camera => Video
+                 #Main camera => Video
 
           videos = driver.find_elements(By.XPATH, "//td[@data-spec='cam1video']")
           video_name=[b.text for b in videos[:1]]
           video_names=check_and_replace_empty_list(video_name)
 
     
-          #Selfie Camera => Single
+                #Selfie Camera => Single
 
 
           sin_gles = driver.find_elements(By.XPATH,"//td[@data-spec='cam2modules']")
           sin_gle_name=[b.text for b in sin_gles[:1]]
           sin_gle_names=check_and_replace_empty_list(sin_gle_name)
     
-          #Selfie Camera => Features
+                #Selfie Camera => Features
 
           feat_uress = driver.find_elements(By.XPATH,"//td[@data-spec='cam2features']")
           feat_ures_name=[b.text for b in feat_uress[:1]]
           feat_ures_names=check_and_replace_empty_list(feat_ures_name)
     
-          #Selfie Camera => Video
+                #Selfie Camera => Video
 
           v_ideos = driver.find_elements(By.XPATH, "//td[@data-spec='cam2video']")
           v_ideo_name=[b.text for b in v_ideos[:1]]
           v_ideo_names= check_and_replace_empty_list(v_ideo_name)
                      
     
-          #Sound =>Loudspeaker
+                #Sound =>Loudspeaker
 
           loudspeakers = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[1]/td[2]""")
           loudspeaker_name=[b.text for b in loudspeakers[:1]]
           loudspeaker_names=check_and_replace_empty_list(loudspeaker_name)
     
-          #Sound => 3.5mm Jack
+                #Sound => 3.5mm Jack
 
           jacks = driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[9]/tbody/tr[2]/td[2]""")
           jack_name=[b.text for b in jacks[:1]]
           jack_names=check_and_replace_empty_list(jack_name)
     
-          #Comms => Wlan
+                #Comms => Wlan
 
           wlans = driver.find_elements(By.XPATH, "//td[@data-spec='wlan']")
           wlan_name=[b.text for b in wlans[:1]]
           wlan_names=check_and_replace_empty_list(wlan_name)
     
-          #Comms =>Blutooth
+                #Comms =>Blutooth
  
           blutooths = driver.find_elements(By.XPATH, "//td[@data-spec='bluetooth']")
           blutooth_name=[b.text for b in blutooths[:1]]
           blutooth_names=check_and_replace_empty_list(blutooth_name)
     
-          #Comms =>Positioning
+                #Comms =>Positioning
 
           positionings = driver.find_elements(By.XPATH, "//td[@data-spec='gps']")
           positioning_name=[b.text for b in positionings[:1]]
           positioning_names=check_and_replace_empty_list(positioning_name)
     
-          #Comms=>NFC
+                #Comms=>NFC
 
           nfcs = driver.find_elements(By.XPATH, "//td[@data-spec='nfc']")
           nfc_name=[b.text for b in nfcs[:1]]
           nfc_names=check_and_replace_empty_list(nfc_name)
        
-          #Comms=>Infrared port
-          
+                #Comms=>Infrared port
           try:
                         infrared_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[10]/tbody/tr[5]/td[1]/a""")
                         infrared_titles=[b.text for b in infrared_title[:1]]
@@ -232,31 +231,31 @@ def search(search_query):
                         infrared_names=infrared_name
        
 
-          #Comms =>Radio
+                #Comms =>Radio
 
           radios = driver.find_elements(By.XPATH, "//td[@data-spec='radio']")
           radio_name=[b.text for b in radios[:1]]
           radio_names=check_and_replace_empty_list(radio_name)
     
-          #Comms =>USB
+                #Comms =>USB
     
           usbs = driver.find_elements(By.XPATH, "//td[@data-spec='usb']")
           usb_name=[b.text for b in usbs[:1]]
           usb_names=check_and_replace_empty_list(usb_name)
     
-          #Features => Sensors
+                #Features => Sensors
 
           sensorss = driver.find_elements(By.XPATH, "//td[@data-spec='sensors']")
           sensors_name=[b.text for b in sensorss[:1]]
           sensors_names=check_and_replace_empty_list(sensors_name)
     
-          #Battery =>Type
+                #Battery =>Type
 
           ty_pes = driver.find_elements(By.XPATH, "//td[@data-spec='batdescription1']")
           ty_pe_name=[b.text for b in ty_pes[:1]]
           ty_pe_names=check_and_replace_empty_list(ty_pe_name)
     
-          #Battery =>Charging
+                #Battery =>Charging
           try:
                         charge_title=driver.find_elements(By.XPATH, """//*[@id="specs-list"]/table[12]/tbody/tr[2]/td[1]/a""")
                         charging_titles=[b.text for b in charge_title[:1]]
@@ -271,32 +270,31 @@ def search(search_query):
                         charging_name="-"
                         charging_names=charging_name
     
-          # Misc =>Color
+                # Misc =>Color
 
           colorss = driver.find_elements(By.XPATH, "//td[@data-spec='colors']")
           colors_name=[b.text for b in colorss[:1]]
           colors_names=check_and_replace_empty_list(colors_name)
-        
-          # Misc => Models
+                # Misc => Models
 
           model= driver.find_elements(By.XPATH, "//td[@data-spec='models']")
           model_name=[b.text for b in model[:1]]
           model_names=check_and_replace_empty_list(model_name)
       
-          # Misc => SAR
+                # Misc => SAR
 
           sar= driver.find_elements(By.XPATH, "//td[@data-spec='sar-us']")
           sar_name=[b.text for b in sar[:1]]
           sar_names=check_and_replace_empty_list(sar_name)
 
 
-          #Misc => SAR EU
+                #Misc => SAR EU
 
           sar_eu= driver.find_elements(By.XPATH, "//td[@data-spec='sar-eu']")
           sar_eu_name=[b.text for b in sar_eu[:1]]          
           sar_eu_names=check_and_replace_empty_list(sar_eu_name)
         
-          #Misc => Price
+                #Misc => Price
 
 
           price = driver.find_elements(By.XPATH, "//td[@data-spec='price']")
@@ -309,14 +307,15 @@ def search(search_query):
 
 
           for data in zip(product_names,technology_names,announced_names,status_names,dimension_names,weight_count,build_names,sim_names,t_ypes_names,size_names,
-                    resolution_names,os_names,chipset_names,cpu_names,gpu_names,cardslot_names,internal_names,single_names,features_names,video_names,
-                    sin_gle_names,feat_ures_names,v_ideo_names,loudspeaker_names,jack_names,wlan_names,blutooth_names,positioning_names,nfc_names,radio_names,
-                    usb_names,sensors_names,ty_pe_names,charging_names,colors_names,protections_names,infrared_names,model_names,sar_names,sar_eu_names,
+                    resolution_names,protections_names,os_names,chipset_names,cpu_names,gpu_names,cardslot_names,internal_names,single_names,features_names,
+                    video_names,sin_gle_names,feat_ures_names,v_ideo_names,loudspeaker_names,jack_names,wlan_names,blutooth_names,positioning_names,nfc_names,
+                    infrared_names,radio_names,usb_names,sensors_names,ty_pe_names,charging_names,colors_names,model_names,sar_names,sar_eu_names,
                     price_names):
             data
     except:
          data=list(range(50))
-         data[0:50]=["Not Found"]*(50)
+         data[0]="Not Found"
+         data[1:50]=["-"]*(50)
          img_url=""
        
        
