@@ -13,9 +13,9 @@ def index():
             search_query1 = request.form.get('search_query1')
             search_query2 = request.form.get('search_query2')
             
-            table_data=tabledata(search_query1,search_query2)
+            table_data,suggest=tabledata(search_query1,search_query2)
 
-            return render_template('project.html',table_data=table_data)
+            return render_template('project.html',table_data=table_data,suggest=suggest)
     return render_template('project.html',error1=error1,error2=error2)
 
 if __name__ == '__main__':
