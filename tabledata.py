@@ -40,10 +40,9 @@ def tabledata(search_query1,search_query2):
             r=0
             s=0
             for i in range(0,40):
-                for j in range(0,40):
-                    p,q=string_compare(product_data1[i+1],product_data2[j+1])
-                    r=0+p
-                    s=0+q
+                p,q=string_compare(product_data1[i+1],product_data2[i+1])
+                r=0+p
+                s=0+q
             print(r,s)
             suggest=points(r,s)
         return suggest
