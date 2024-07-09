@@ -12,5 +12,41 @@ def tabledata(search_query1,search_query2):
                  'data71':product_data1[35],'data72':product_data2[35],'data73':product_data1[36],'data74':product_data2[36],'data75':product_data1[37],'data76':product_data2[37],'data77':product_data1[38],'data78':product_data2[38],'data79':product_data1[39],'data80':product_data2[39],
                  'data81':product_data1[40],'data82':product_data2[40],'data83':img_url1,'data84':image_url2 
                 }]
-    suggest=product_data1[0]
-    return table_data,suggest
+    
+    #suggest value
+    def string_compare(str1,str2):
+        a=0
+        b=0
+        if str1 == str2:
+            a=a+1
+            b=b+1
+        elif str1 > str2:
+            a=a+1
+        else:
+            b=b+1
+        return a,b
+    def points(a,b):
+        if a == b:
+            suggestion=f'"Both {product_data1[0]} and {product_data2[0]} are best"'
+        elif a>b:
+            suggestion=f'"{product_data1[0]} be the best choice"'
+        elif a<b:
+            suggestion=f'"{product_data2[0]} be the best choice"'
+        return suggestion
+    def main():
+        if product_data1[0]=="Not Found" and product_data2[0]=="Not Found":
+            suggest="Not Found"
+        else:
+            r=0
+            s=0
+            for i in range(0,40):
+                for j in range(0,40):
+                    p,q=string_compare(product_data1[i+1],product_data2[j+1])
+                    r=0+p
+                    s=0+q
+            print(r,s)
+            suggest=points(r,s)
+        return suggest
+    suggested=main()
+        #return suggest
+    return table_data,suggested
