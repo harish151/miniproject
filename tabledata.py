@@ -10,42 +10,21 @@ def tabledata(search_query1,search_query2):
                  'data51':product_data1[25],'data52':product_data2[25],'data53':product_data1[26],'data54':product_data2[26],'data55':product_data1[27],'data56':product_data2[27],'data57':product_data1[28],'data58':product_data2[28],'data59':product_data1[29],'data60':product_data2[29],
                  'data61':product_data1[30],'data62':product_data2[30],'data63':product_data1[31],'data64':product_data2[31],'data65':product_data1[32],'data66':product_data2[32],'data67':product_data1[33],'data68':product_data2[33],'data69':product_data1[34],'data70':product_data2[34],
                  'data71':product_data1[35],'data72':product_data2[35],'data73':product_data1[36],'data74':product_data2[36],'data75':product_data1[37],'data76':product_data2[37],'data77':product_data1[38],'data78':product_data2[38],'data79':product_data1[39],'data80':product_data2[39],
-                 'data81':product_data1[40],'data82':product_data2[40],'data83':img_url1,'data84':image_url2 
+                 'data81':product_data1[40],'data82':product_data2[40],'data83':product_data1[41],'data84':product_data2[41],'data85':img_url1,'data86':image_url2 
                 }]
     
     #suggest value
-    def string_compare(str1,str2):
-        a=0
-        b=0
-        if str1 == str2:
-            a=a+1
-            b=b+1
-        elif str1 > str2:
-            a=a+1
-        else:
-            b=b+1
-        return a,b
-    def points(a,b):
-        if a == b:
-            suggestion=f'"Both {product_data1[0]} and {product_data2[0]} are best"'
-        elif a>b:
-            suggestion=f'"{product_data1[0]} be the best choice"'
-        elif a<b:
-            suggestion=f'"{product_data2[0]} be the best choice"'
-        return suggestion
-    def main():
-        if product_data1[0]=="Not Found" and product_data2[0]=="Not Found":
-            suggest="Not Found"
-        else:
-            r=0
-            s=0
-            for i in range(0,40):
-                p,q=string_compare(product_data1[i+1],product_data2[i+1])
-                r=0+p
-                s=0+q
-            print(r,s)
-            suggest=points(r,s)
-        return suggest
-    suggested=main()
-        #return suggest
-    return table_data,suggested
+    def rate(x,y):
+        if x>="4" and y>="4":
+            rating=f'Both "{product_data1[0]}" and "{product_data2[0]}" are Better'
+        elif x>=y:
+            rating=f'"{product_data1[0]}" is Better'
+        elif x<=y:
+            rating=f'"{product_data2[0]}" is Better'
+        return rating
+    x=product_data1[41]
+    y=product_data2[41]
+    review=rate(x,y)
+
+         #return suggest
+    return table_data,review
