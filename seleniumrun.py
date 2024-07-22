@@ -304,13 +304,27 @@ def search(search_query):
           price_names=price_name
 
 
+          def check_and_replace_review_rate(input_list):
+               if not input_list:
+                    return "3.2"
+               return input_list
+
+                #Review => Rating
+          search_box=driver.find_element(By.XPATH,"""//*[@id="body"]/div/div[1]/div/div[3]/ul/li[1]/a""").click()
+          review_rate = driver.find_elements(By.XPATH, "//span[@class='score']")
+          review=[b.text for b in review_rate[:1]]
+          review_rates=check_and_replace_review_rate(review)
+
+
+
+
 
 
           for data in zip(product_names,technology_names,announced_names,status_names,dimension_names,weight_count,build_names,sim_names,t_ypes_names,size_names,
                     resolution_names,protections_names,os_names,chipset_names,cpu_names,gpu_names,cardslot_names,internal_names,single_names,features_names,
                     video_names,sin_gle_names,feat_ures_names,v_ideo_names,loudspeaker_names,jack_names,wlan_names,blutooth_names,positioning_names,nfc_names,
                     infrared_names,radio_names,usb_names,sensors_names,ty_pe_names,charging_names,colors_names,model_names,sar_names,sar_eu_names,
-                    price_names):
+                    price_names,review_rates):
             data
     except:
          data=list(range(50))
