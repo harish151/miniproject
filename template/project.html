@@ -38,7 +38,7 @@
     <br><!--suggestion-->
     {% if suggest %}
     <div class="suggestion" id="suggestion">
-      <div><pre><font face="bold" size="5">SUGGESTION :</font><font size="5"> {{suggest}}</font></pre></div>
+      <div><pre><font face="bold" size="5" color="red">SUGGESTION :</font><font size="5" color="green"> {{suggest}}</font></pre></div>
     </div>
     {% endif %}
     <br><br>
@@ -64,8 +64,8 @@
     <tr>
       <td align="center" class="headings" width="10%">MOBILE</td>
       <td align="left" class="subheadings">Image</td>
-      <td align="center"><img src="{{row['data83']}}"></td>
-      <td align="center"><img src="{{row['data84']}}"></td>
+      <td align="center"><img src="{{row['data85']}}"></td>
+      <td align="center"><img src="{{row['data86']}}"></td>
     </tr>
     
     <!-- row3-->
@@ -174,7 +174,7 @@
     <!-- row9-->
     <tr>
       <td rowspan="3" align="center" class="headings" width="10%">MAIN<br>CAMERA</td>
-      <td align="left" class="subheadings" width="10%">Single</td>
+      <td align="left" class="subheadings" width="10%">Single/Triple/Quad</td>
       <td>{{row['data37']}}</td>
       <td>{{row['data38']}}</td>
     </tr>
@@ -305,6 +305,14 @@
       <td align="left" class="subheadings" width="10%">Price</td>
       <td>{{row['data81']}}</td>
       <td>{{row['data82']}}</td>
+    </tr>
+
+    <!-- row16 -->
+    <tr>
+      <td rowspan="1" align="center" class="headings" width="10%">Review</td>
+      <td align="left" class="subheadings" width="10%">Rating</td>
+      <td>{{row['data83']}}</td>
+      <td>{{row['data84']}}</td>
     </tr>
 
   </table>
