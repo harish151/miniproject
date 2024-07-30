@@ -9,7 +9,8 @@ def search(search_query):
     options = webdriver.ChromeOptions()
     options=Options()
     #options.add_argument('--headless')  # Run in headless mode
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    #driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Chrome(options=options)
     driver.get("https://www.gsmarena.com/")
     
 
