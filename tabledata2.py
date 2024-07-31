@@ -33,10 +33,12 @@ def tabledata(search_query1,search_query2):
         return rating
     x=product_data1['Review Rating']
     y=product_data2['Review Rating']
-    if x=="Not Found" and y=="Not Found":
-        review="-"
+    print(x,y)
+    
+    if product_data1['Product Name'] != 'Not Found' and product_data2['Product Name'] != 'Not Found':
+       review = rate(x, y)
     else:
-        review=rate(x,y)
+       review = "-"
 
          #return suggest
     return table_data,review
