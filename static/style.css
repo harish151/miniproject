@@ -61,3 +61,16 @@ input[type="text"]{
     display: none;
     text-align: center;
 }
+.headingcolumn{
+    background-color: chartreuse;
+    width: 7px;
+    height:35px;
+}
+.columnname{
+    background-color: aliceblue;
+    width:100%;
+}
+.compareresult-table{
+    border-collapse: collapse;
+    width: 99.9%;
+}
