@@ -29,7 +29,7 @@ def search(search_query):
         
         def check_and_replace_review_rate(input_list):
             if not input_list:
-                return "3.9"
+                return "4"
             return input_list[0]
 
         # Extracting various details
