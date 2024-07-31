@@ -36,290 +36,362 @@
     <div class="loader" id="loader"></div>
     <br><div class="content" id="content">Please Wait...</div>
     <br><!--suggestion-->
-    {% if suggest %}
-    <div class="suggestion" id="suggestion">
-      <div><pre><font face="bold" size="5" color="red">SUGGESTION :</font><font size="5" color="green"> {{suggest}}</font></pre></div>
-    </div>
-    {% endif %}
     <br><br>
 
-    <div id="result">
+<div id="result">
    
     <!--result table-->
-    {% if table_data %}
-    {% for row in table_data %}
-<table border="1" width="100%" style="border-collapse:collapse" class="resultant-table">
-    <!-- row1-->
-    <thead>
-            <td colspan="2"></td>
-            <th align="center" width="42%">
-                <h1>{{row['data1']}}</h1><br>
-            </th>
-            <th align="center" width="50%">
-                <h1>{{row['data2']}}</h1><br>
-            </th>
-    </thead>
+    {% if tabledata %}
+    {% for row in tabledata %}
 
-    <!--row2-->
-    <tr>
-      <td align="center" class="headings" width="10%">MOBILE</td>
-      <td align="left" class="subheadings">Image</td>
-      <td align="center"><img src="{{row['data85']}}"></td>
-      <td align="center"><img src="{{row['data86']}}"></td>
-    </tr>
-    
-    <!-- row3-->
-    <tr>
-      <td align="center" class="headings" width="10%">NETWORK</td>
-      <td align="left" class="subheadings">Technology</td>
-      <td>{{row['data3']}}</td>
-      <td>{{row['data4']}}</td>
-    </tr>
 
-    <!-- row4-->
-    <tr>
-      <td rowspan="2" align="center" class="headings" width="10%">LAUNCH</td>
-      <td align="left" class="subheadings" width="10%">Announced</td>
-      <td>{{row['data5']}}</td>
-      <td>{{row['data6']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Status</td>
-      <td>{{row['data7']}}</td>
-      <td>{{row['data8']}}</td>
-    </tr>
+<!--IMAGES-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>IMAGES</b></font></div>
+    </div>
+    <div style="display: flex;justify-content: space-around;">
+        <div><table border="2" style="border-collapse: collapse;width:10.5cm;"><tr><td><center><img src="{{row['data85']}}" width="200px" height="300px"></center></td></tr><tr><td><center><h1>{{row['data1']}}</h1></center></td></tr></table></div>
+        <div><table border="2" style="border-collapse: collapse;width:10.5cm;"><tr><td><center><img src="{{row['data86']}}" width="200px" height="300px"></center></td></tr><tr><td><center><h1>{{row['data2']}}</h1></center></td></tr></table></div>
+    </div>
 
-    <!-- row5-->
-    <tr> 
-      <td rowspan="4" align="center" class="headings" width="10%">BODY</td>
-      <td align="left" class="subheadings" width="10%">Dimensions</td>
-      <td>{{row['data9']}}</td>
-      <td>{{row['data10']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Weight</td>
-      <td>{{row['data11']}}</td>
-      <td>{{row['data12']}}</td>
-    </tr>
-     <tr>
-      <td align="left" class="subheadings" width="10%">Build</td>
-      <td>{{row['data13']}}</td>
-      <td>{{row['data14']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">SIM</td>
-      <td>{{row['data15']}}</td>
-      <td>{{row['data16']}}</td>
-    </tr>
+<!--SUGGEST-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>Suggest</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td><h2>{{suggest}}</h2></td>
+        </tr>
+    </table>
 
-    <!-- row6-->
-    <tr>
-      <td rowspan="4" align="center" class="headings" width="10%">DISPLAY</td>
-      <td align="left" class="subheadings" width="10%">Type</td>
-      <td>{{row['data17']}}</td>
-      <td>{{row['data18']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Size</td>
-      <td>{{row['data19']}}</td>
-      <td>{{row['data20']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Resolution</td>
-      <td>{{row['data21']}}</td>
-      <td>{{row['data22']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Protection</td>
-      <td>{{row['data23']}}</td>
-      <td>{{row['data24']}}</td>
-    </tr>
+<!--REVIEW-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>REVIEW</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Rating</b></td>
+            <td width="25%">{{row['data83']}}</td>
+            <td width="25%">{{row['data84']}}</td>
+        </tr>
+    </table>
 
-    <!-- row7-->
-    <tr> 
-      <td rowspan="4" align="center" class="headings" width="10%">PLATFORM</td>
-      <td align="left" class="subheadings" width="10%">OS</td>
-      <td>{{row['data25']}}</td>
-      <td>{{row['data26']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">ChipSet</td>
-      <td>{{row['data27']}}</td>
-      <td>{{row['data28']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">CPU</td>
-      <td>{{row['data29']}}</td>
-      <td>{{row['data30']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">GPU</td>
-      <td>{{row['data31']}}</td>
-      <td>{{row['data32']}}</td>
-    </tr>
-
-    <!-- row8-->
-    <tr>
-      <td rowspan="2" align="center" class="headings" width="10%">MEMORY</td>
-      <td align="left" class="subheadings" width="10%">Card slot</td>
-      <td>{{row['data33']}}</td>
-      <td>{{row['data34']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Internal</td>
-      <td>{{row['data35']}}</td>
-      <td>{{row['data36']}}</td>
-    </tr>
-
-    <!-- row9-->
-    <tr>
-      <td rowspan="3" align="center" class="headings" width="10%">MAIN<br>CAMERA</td>
-      <td align="left" class="subheadings" width="10%">Single/Triple/Quad</td>
-      <td>{{row['data37']}}</td>
-      <td>{{row['data38']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Features</td>
-      <td>{{row['data39']}}</td>
-      <td>{{row['data40']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Video</td>
-      <td>{{row['data41']}}</td>
-      <td>{{row['data42']}}</td>
-    </tr>
-
-    <!-- row10-->
-    <tr>
-      <td rowspan="3" align="center" class="headings" width="10%">SELFIE<br>CAMERA</td>
-      <td align="left" class="subheadings" width="10%">Single</td>
-      <td>{{row['data43']}}</td>
-      <td>{{row['data44']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Features</td>
-      <td>{{row['data45']}}</td>
-      <td>{{row['data46']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Video</td>
-      <td>{{row['data47']}}</td>
-      <td>{{row['data48']}}</td>
-    </tr>
-
-    <!-- row11-->
-     <tr>
-      <td rowspan="2" align="center" class="headings" width="10%">SOUND</td>
-      <td align="left" class="subheadings" width="10%">LoudSpeaker</td>
-      <td>{{row['data49']}}</td>
-      <td>{{row['data50']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">3.5mm jack</td>
-      <td>{{row['data51']}}</td>
-      <td>{{row['data52']}}</td>
-    </tr>
-
-    <!-- row12-->
-    <tr>
-      <td rowspan="7" align="center" class="headings" width="10%">COMMS</td>
-      <td align="left" class="subheadings" width="10%">WLAN</td>
-      <td>{{row['data53']}}</td>
-      <td>{{row['data54']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Blutooth</td>
-      <td>{{row['data55']}}</td>
-      <td>{{row['data56']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Positioning</td>
-      <td>{{row['data57']}}</td>
-      <td>{{row['data58']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">NFC</td>
-      <td>{{row['data59']}}</td>
-      <td>{{row['data60']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Infrared Port</td>
-      <td>{{row['data61']}}</td>
-      <td>{{row['data62']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Radio</td>
-      <td>{{row['data63']}}</td>
-      <td>{{row['data64']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">USB</td>
-      <td>{{row['data65']}}</td>
-      <td>{{row['data66']}}</td>
-    </tr>
-
-    <!-- row13-->
-    <tr>
-      <td align="center" class="headings" width="10%">FEATURES</td>
-      <td align="left" class="subheadings" width="10%">Sensors</td>
-      <td>{{row['data67']}}</td>
-      <td>{{row['data68']}}</td>
-    </tr>
-
-    <!-- row14-->
-    <tr>
-      <td rowspan="2" align="center" class="headings" width="10%">BATTERY</td>
-      <td align="left" class="subheadings" width="10%">Type</td>
-      <td>{{row['data69']}}</td>
-      <td>{{row['data70']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Charging</td>
-      <td>{{row['data71']}}</td>
-      <td>{{row['data72']}}</td>
-    </tr>
-
-    <!-- row15-->
-    <tr>
-      <td align="center" class="headings" width="10%" rowspan="5">MISC</td>
-      <td align="left" class="subheadings" width="10%">Colors</td>
-      <td>{{row['data73']}}</td>
-      <td>{{row['data74']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Model</td>
-      <td>{{row['data75']}}</td>
-      <td>{{row['data76']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">SAR</td>
-      <td>{{row['data77']}}</td>
-      <td>{{row['data78']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">SAR EU</td>
-      <td>{{row['data79']}}</td>
-      <td>{{row['data80']}}</td>
-    </tr>
-    <tr>
-      <td align="left" class="subheadings" width="10%">Price</td>
-      <td>{{row['data81']}}</td>
-      <td>{{row['data82']}}</td>
-    </tr>
-
-    <!-- row16 -->
-    <tr>
-      <td rowspan="1" align="center" class="headings" width="10%">Review</td>
-      <td align="left" class="subheadings" width="10%">Rating</td>
-      <td>{{row['data83']}}</td>
-      <td>{{row['data84']}}</td>
-    </tr>
-
-  </table>
-  {% endfor %}
-  {% endif %}
+<!--NETWORK -->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>NETWORK</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Technology</b></td>
+            <td width="25%">{{row['data3']}}</td>
+            <td width="25%">{{row['data4']}}</td>
+        </tr>
+    </table>
+<!--LAUNCH-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>LAUNCH</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Announced</b></td>
+            <td width="25%">{{row['data5']}}</td>
+            <td width="25%">{{row['data6']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Status</b></td>
+            <td>{{row['data7']}}</td>
+            <td>{{row['data8']}}</td>
+        </tr>
+    </table>
+<!--BODY-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>BODY</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Dimensions</b></td>
+            <td width="25%">{{row['data9']}}</td>
+            <td width="25%">{{row['data10']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Weight</b></td>
+            <td>{{row['data11']}}</td>
+            <td>{{row['data12']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Build</b></td>
+            <td>{{row['data13']}}</td>
+            <td>{{row['data14']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>SIM</b></td>
+            <td>{{row['data15']}}</td>
+            <td>{{row['data16']}}</td>
+        </tr>
+    </table>
+<!--DISPLAY-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>DISPLAY</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Type</b></td>
+            <td width="25%">{{row['data17']}}</td>
+            <td width="25%">{{row['data18']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Size</b></td>
+            <td>{{row['data19']}}</td>
+            <td>{{row['data20']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Resolution</b></td>
+            <td>{{row['data21']}}</td>
+            <td>{{row['data22']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Protection</b></td>
+            <td>{{row['data23']}}</td>
+            <td>{{row['data24']}}</td>
+        </tr>
+    </table>
+<!--PLATFORM-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>PLATFORM</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>OS</b></td>
+            <td width="25%">{{row['data25']}}</td>
+            <td width="25%">{{row['data26']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>ChipSet</b></td>
+            <td>{{row['data27']}}</td>
+            <td>{{row['data28']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>CPU</b></td>
+            <td>{{row['data29']}}</td>
+            <td>{{row['data30']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>GPU</b></td>
+            <td>{{row['data31']}}</td>
+            <td>{{row['data32']}}</td>
+        </tr>
+    </table>
+<!--Memory-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>MEMORY</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Card Slot</b></td>
+            <td width="25%">{{row['data33']}}</td>
+            <td width="25%">{{row['data34']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Internal</b></td>
+            <td>{{row['data35']}}</td>
+            <td>{{row['data36']}}</td>
+        </tr>
+    </table>
+<!--MAIN CAMERA-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>MAIN CAMERA</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="8.5%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Single/Triple/Quad</b></td>
+            <td width="25%">{{row['data37']}}</td>
+            <td width="25%">{{row['data38']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Features</b></td>
+            <td>{{row['data39']}}</td>
+            <td>{{row['data40']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Video</b></td>
+            <td>{{row['data41']}}</td>
+            <td>{{row['data42']}}</td>
+        </tr>
+    </table>
+<!--SELFIE CAMERA-->
+    <br>
+    <div style="display: flex;">
+    <div class="headingcolumn"></div>
+    <div class="columnname"><font size="5.9px" color="red"><b>SELFIE CAMERA</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Single</b></td>
+            <td width="25%">{{row['data43']}}</td>
+            <td width="25%">{{row['data44']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Features</b></td>
+            <td>{{row['data45']}}</td>
+            <td>{{row['data46']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Video</b></td>
+            <td>{{row['data47']}}</td>
+            <td>{{row['data48']}}</td>
+        </tr>
+    </table>
+<!--SOUND-->
+    <br>
+    <div style="display: flex;">
+    <div class="headingcolumn"></div>
+    <div class="columnname"><font size="5.9px" color="red"><b>SOUND</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>LoudSpeaker</b></td>
+            <td width="25%">{{row['data49']}}</td>
+            <td width="25%">{{row['data50']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>3.5mm Jack</b></td>
+            <td>{{row['data51']}}</td>
+            <td>{{row['data52']}}</td>
+        </tr>
+    </table>
+<!--COMMS-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>COMMS</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>WLAN</b></td>
+            <td width="25%">{{row['data53']}}</td>
+            <td width="25%">{{row['data54']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Bluetooth</b></td>
+            <td>{{row['data55']}}</td>
+            <td>{{row['data56']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Positioning</b></td>
+            <td>{{row['data57']}}</td>
+            <td>{{row['data58']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>NFC</b></td>
+            <td>{{row['data59']}}</td>
+            <td>{{row['data60']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Infrared Port</b></td>
+            <td>{{row['data61']}}</td>
+            <td>{{row['data62']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Radio</b></td>
+            <td>{{row['data63']}}</td>
+            <td>{{row['data64']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>USB</b></td>
+            <td>{{row['data65']}}</td>
+            <td>{{row['data66']}}</td>
+        </tr>
+    </table>
+<!--FEATURES-->
+    <br>
+    <div style="display: flex;">
+        <div class="headingcolumn"></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>FEATURES</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Sensors</b></td>
+            <td width="25%">{{row['data67']}}</td>
+            <td width="25%">{{row['data68']}}</td>
+        </tr>
+    </table>
+<!--BATTERY-->
+    <br>
+    <div style="display: flex;">
+    <div class="headingcolumn"></div>
+    <div class="columnname"><font size="5.9px" color="red"><b>BATTERY</b></font></div>
+    </div>
+    <table border="1px" class="compareresult-table">
+        <tr>
+            <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Type</b></td>
+            <td width="25%">{{row['data69']}}</td>
+            <td width="25%">{{row['data70']}}</td>
+        </tr>
+        <tr>
+            <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Charging</b></td>
+            <td>{{row['data71']}}</td>
+            <td>{{row['data72']}}</td>
+        </tr>
+    </table>
+<!--MISC-->
+    <br>
+        <div style="display: flex;">
+            <div class="headingcolumn"></div>
+            <div class="columnname"><font size="5.9px" color="red"><b>MISC</b></font></div>
         </div>
-    <script src="/static/scripts.js"> </script>
+        <table border="1px" class="compareresult-table">
+            <tr>
+                <td width="10%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Colors</b></td>
+                <td width="25%">{{row['data73']}}</td>
+                <td width="25%">{{row['data74']}}</td>
+            </tr>
+            <tr>
+                <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Model</b></td>
+                <td>{{row['data75']}}</td>
+                <td>{{row['data76']}}</td>
+            </tr>
+            <tr>
+                <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>SAR</b></td>
+                <td>{{row['data77']}}</td>
+                <td>{{row['data78']}}</td>
+            </tr>
+            <tr>
+                <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>SAR EU</b></td>
+                <td>{{row['data79']}}</td>
+                <td>{{row['data80']}}</td>
+            </tr>
+            <tr>
+                <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Price</b></td>
+                <td>{{row['data81']}}</td>
+                <td>{{row['data82']}}</td>
+            </tr>
+        </table><br><br>
+
+        {% endfor %}
+        {% endif %}
+
+</div>
+<script src="/static/scripts.js"></script>
     
   
 
