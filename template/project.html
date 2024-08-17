@@ -223,8 +223,25 @@
     <table border="1px" class="compareresult-table">
         <tr>
             <td width="8.5%" style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Single/Triple/Quad</b></td>
-            <td width="25%">{{data1['data']['Main Camera Modules']}}</td>
-            <td width="25%">{{data2['data']['Main Camera Modules']}}</td>
+            <td style="display: none;" id="original-string1">{{data1['data']['Main Camera Modules']}}</td>
+            <td width="25%" id="modified-string1"></td>
+            <td style="display: none;" id="original-string2">{{data2['data']['Main Camera Modules']}}</td>
+            <td width="25%" id="modified-string2"></td>
+
+            <script>
+                function insertBreaksBeforeSubstring(text, substring) {
+                    const modifiedString = text.replace(/(\d+ MP)/g, '<br>$1');
+                    return modifiedString;
+                }
+                // Get the original string from the HTML
+                const originalString1 = document.getElementById('original-string1').innerText;
+                const originalString2 = document.getElementById('original-string2').innerText;
+                // Call the function and set the modified string in the HTML
+                const modifiedString1 = insertBreaksBeforeSubstring(originalString1, ' MP');
+                document.getElementById('modified-string1').innerHTML = modifiedString1;
+                const modifiedString2 = insertBreaksBeforeSubstring(originalString2, ' MP');
+                document.getElementById('modified-string2').innerHTML = modifiedString2;
+            </script>
         </tr>
         <tr>
             <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Features</b></td>
