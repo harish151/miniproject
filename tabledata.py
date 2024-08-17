@@ -17,6 +17,10 @@ def productdata(search_query1,search_query2):
     
     if product_data1['data']['Product Name'] != 'Not Found' and product_data2['data']['Product Name'] != 'Not Found':
        review = rate(x, y)
+    elif product_data1['data']['Product Name'] == 'Not Found':
+        review=f'"{product_data2['data']['Product Name']}" is Better'
+    elif product_data2['data']['Product Name'] == 'Not Found':
+        review=f'"{product_data1['data']['Product Name']}" is Better'
     else:
        review = "-"
 
