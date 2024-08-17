@@ -230,7 +230,11 @@
 
             <script>
                 function insertBreaksBeforeSubstring(text, substring) {
-                    const modifiedString = text.replace(/(\d+ MP)/g, '<br>$1');
+                    let index=0;
+                    const modifiedString = text.replace(/(\d+ MP)/g, function(match){
+                        index++;
+                        return `<br><font color="red">CAM${index}:</font>${match}`;
+                    });
                     return modifiedString;
                 }
                 // Get the original string from the HTML
