@@ -12,7 +12,7 @@ def perform_task(search_query1, search_query2):
     def search(search_query):
         options = Options()
         options.add_argument("--disable-images")
-        options.add_argument('--headless')  # Uncomment if you need headless mode
+        #options.add_argument('--headless')  # Uncomment if you need headless mode
         options.add_argument("--disable-extensions")
         # Disable GPU acceleration
         options.add_argument("--disable-gpu")
@@ -28,6 +28,18 @@ def perform_task(search_query1, search_query2):
 
         # Disable background apps
         options.add_argument("--disable-background-timer-throttling")
+
+        # Additional optimization arguments
+        options.add_argument("--disable-software-rasterizer")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-translate")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--disable-popup-blocking")
+        options.add_argument("--disable-default-apps")
+        options.add_argument("--no-proxy-server")
+        options.add_argument("--disable-features=IsolateOrigins,site-per-process")
+
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         wait = WebDriverWait(driver, 2)
         
@@ -143,7 +155,17 @@ def perform_task(search_query1, search_query2):
             data["Review Rating"] = extract_review("//span[@class='score']")[0]
 
         except Exception as e:
-            print(f"Error occurred: {e}")
+            keys=['Technology','Announced','Status','Dimensions',
+               'Weight','Build','SIM','Display Type','Display Size',
+               'Display Resolution','Display Protection','OS','Chipset','CPU',
+               'GPU','Memory Card Slot','Internal Memory','Main Camera - Single','Main Camera - Features',
+               'Main Camera - Video','Selfie Camera - Single','Selfie Camera - Features','Selfie Camera - Video','Loudspeaker',
+               '3.5mm Jack','WLAN','Bluetooth','Positioning','NFC',
+               'Infrared Port','Radio','USB','Sensors','Battery Type',
+               'Charging','Colors','Models','SAR','SAR EU','Price','Review Rating']
+            data['Product Name']="Not Found"
+            for key in keys:
+                data[f'{key}']="-"
         
         finally:
             driver.quit()
