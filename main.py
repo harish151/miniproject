@@ -75,7 +75,7 @@ def perform_task(search_query1, search_query2):
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         wait = WebDriverWait(driver, 5)
         
-        img_url=none
+        img_url=None
         
         try:
             driver.get("https://www.gsmarena.com/")
