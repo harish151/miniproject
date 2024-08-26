@@ -41,10 +41,9 @@ def perform_task(search_query1, search_query2):
         options.add_argument("--disable-features=IsolateOrigins,site-per-process")
 
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        wait = WebDriverWait(driver, 2)
+        wait = WebDriverWait(driver, 5)
         
-        data = {}
-        img_url = None
+     
         
         try:
             driver.get("https://www.gsmarena.com/")
@@ -187,9 +186,9 @@ def perform_task(search_query1, search_query2):
             except Exception as e:
                 print(f"Task generated an exception: {e}")
 
-    
 
     return results.get(search_query1),results.get(search_query2)
+
 
 
 
