@@ -30,10 +30,6 @@ input[type="text"]{
     box-shadow: 0 3px aqua;
     transform:translateY(4px);
 }
-.error-message {
-    display:block;
-    color: red;
-}
 .headings{
     color: red;
     font-size: 20px;
