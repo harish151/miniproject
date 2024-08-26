@@ -15,13 +15,11 @@
   <div class="search">
         <div>
     <label>PRODUCT1:</label>
-    <input type="text" name="search_query1" id="textbox1" placeholder="search1" size="50">
-        <div><pre class="error-message" id="error-message">{{ error1 }}</pre></div>
+    <input type="text" name="search_query1" id="textbox1" placeholder="search1" size="50" required>
         </div>
         <div>
     <label>PRODUCT2:</label>
-    <input type="text" name="search_query2" id="textbox2" placeholder="search2" size="50">
-    <br><div><pre class="error-message" id="error-message">{{ error2 }}</pre></div>
+    <input type="text" name="search_query2" id="textbox2" placeholder="search2" size="50" required>
         </div>
   </div><br><br>
         <div class="search">
@@ -59,7 +57,7 @@
     <br>
     <div style="display: flex;">
         <div class="headingcolumn"></div>
-        <div class="columnname"><font size="5.9px" color="red"><b>Suggest</b></font></div>
+        <div class="columnname"><font size="5.9px" color="red"><b>SUGGEST</b></font></div>
     </div>
     <table border="1px" class="compareresult-table">
         <tr>
@@ -246,6 +244,8 @@
                 const modifiedString2 = insertBreaksBeforeSubstring(originalString2, ' MP');
                 document.getElementById('modified-string2').innerHTML = modifiedString2;
             </script>
+
+            
         </tr>
         <tr>
             <td style="color:rgba(68, 67, 67, 0.895);font-size: 20px;"><b>Features</b></td>
