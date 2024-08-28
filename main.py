@@ -232,7 +232,7 @@ def index():
                 return render_template('project.html',data1=data1,data2=data2,suggest=suggest)
         return render_template('project.html')
     except:
-         return "<h1><font color='red'>CHECK YOUR INTERNET CONNECTION EITHER NOT CONNECTED NOR SLOW.</font></h1>"
+         return "<h1><font color='red'>CHECK YOUR INTERNET CONNECTION.</font></h1>"
 
 if __name__=='__main__':
     app.run(debug=True)
