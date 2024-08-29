@@ -17,23 +17,24 @@ def productdata(search_query1,search_query2):
     #suggest value
     def rate(x,y):
         if x>="4" and y>="4":
-            rating=f'Both "{product_data1['data']['Product Name']}" and "{product_data2['data']['Product Name']}" are Better'
+            rating="Both "+product_data1['data']['Product Name']+" and "+product_data2['data']['Product Name']
+            +" are Better"
         elif x>=y:
-            rating=f'"{product_data1['data']['Product Name']}" is Better'
+            rating=product_data1['data']['Product Name']+" is Better"
         elif x<=y:
-            rating=f'"{product_data2['data']['Product Name']}" is Better'
+            rating=product_data2['data']['Product Name']+" is Better"
         return rating
     x=product_data1['data']['Review Rating']
     y=product_data2['data']['Review Rating']
     
     if product_data1['data']['Product Name'] != 'Not Found' and product_data2['data']['Product Name'] != 'Not Found':
        review = rate(x, y)
+    elif product_data1['data']['Product Name'] == 'Not Found' and product_data2['data']['Product Name'] == 'Not Found':
+        review = "-"
     elif product_data1['data']['Product Name'] == 'Not Found':
-        review=f'"{product_data2['data']['Product Name']}" is Better'
+        review=product_data2['data']['Product Name']+" is Better"
     elif product_data2['data']['Product Name'] == 'Not Found':
-        review=f'"{product_data1['data']['Product Name']}" is Better'
-    else:
-       review = "-"
+        review=product_data1['data']['Product Name']+" is Better"
 
          #return suggest
     return product_data1,product_data2,review
@@ -75,7 +76,8 @@ def perform_task(search_query1, search_query2):
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         wait = WebDriverWait(driver, 5)
         
-        img_url= None
+        data = {}
+        img_url = None
         
         try:
             driver.get("https://www.gsmarena.com/")
