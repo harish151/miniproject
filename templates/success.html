@@ -20,7 +20,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 700px;
         }
         button {
             width: 100%;
@@ -42,8 +42,12 @@
 </head>
 <body>
 <div class="success-container">
+    <table border="0" cellspacing="20px"><tr><td>
+        <img src="{{ url_for('static', filename='images/img.jpeg') }}" width="300px" height="300px">
+    </td><td>
     <h1>Successfully Created!</h1>
     <a href="{{url_for('login')}}"><button type="button">Login</button></a>
+</td><tr></table>
 </div>
 </body>
 </html>
